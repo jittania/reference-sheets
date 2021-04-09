@@ -7,8 +7,9 @@
 Syntax | Meaning
 --- | ---
 `from name_of_package.name_of_module import Class` | how to import a class, using the names of the module (just name of module, ommitt the .py) and package it lives in
-`from .item import Item` | relative import 
-`from item import Item` | absolute import 
+`from .name_of_class_module import Class` | relative import 
+`from name_of_class_module import Class` | absolute import 
+`from name_of_module import *` | ?
 
 ## **OOP**
 
@@ -25,10 +26,12 @@ Syntax | Used To...
 `super().parent_class_method() ` | general syntax for super() method
 `super().__init__(arg1, arg2, etc)` | super refers to the parent class, and construtor of the parent class, and pulls those attributes (passed in as arguments) from the parent class and sets them up as attributes in the child class it's being called in 
 
-`dir()` | list all of the methods that a particular class has
+`dir()` | list all of the methods that a particular class has (helpful for debugging)
+`vars()` | makes a dictionary of an object's attributes (helpful for debugging)
 
 
-## **OOP Debugging**
+
+## **Typical OOP-Related Errors**
 Error | Meaning
 --- | ---
 `NameError: name 'ExampleClassName' is not defined` | This suggests that the class named `ExampleClassName` hasn't been defined before trying to instantiate it
