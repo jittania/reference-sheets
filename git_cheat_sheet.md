@@ -34,7 +34,7 @@
 
 1. From VS Code: Press Ctrl+Shift+P to show the Command Palette
 
-2. Execute the Git: Clone command. It may help to type “Git” to bring it to the shortlist. Select a local path to clone the repo to. Open the cloned repository
+2. Execute the "Git: Clone command". It may help to type “Git” to bring it to the shortlist. Select a local path to clone the repo to. Open the cloned repository
 
 3. Committing changes:
 
@@ -48,10 +48,11 @@
 Note: Committing changes to a branch will not affect other branches and you can share branches with others without having to merge the changes into the main project. You can also create new branches to isolate changes for a feature or a bug fix from your master branch and other work.
 
       1. Creating a new branch in your local repository:
-            1. Click the master branch from the bottom left.
-            2. Select "Create new branch from" and enter a name
-            3. Select the master as the reference branch.
-            4. You are now working on that branch.
+            1. Navigate to "Source Control" (the branch icon) 
+            2. Click the master branch from the bottom left.
+            3. Select "Create new branch from" and enter a name
+            4. Select the master as the reference branch.
+            5. You are now working on that branch.
 
 
 
