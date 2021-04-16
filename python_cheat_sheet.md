@@ -3,13 +3,7 @@
 [Click for Markdown Guide](https://guides.github.com/features/mastering-markdown/)
 
 
-## **Importing and Project Organization** (probably move this section into a new md file)
-Syntax | Meaning
---- | ---
-`from name_of_package.name_of_module import Class` | how to import a class, using the names of the module (just name of module, ommitt the .py) and package it lives in
-`from .name_of_class_module import Class` | relative import 
-`from name_of_class_module import Class` | absolute import 
-`from name_of_module import *` | ?
+
 
 ## **OOP**
 

@@ -25,7 +25,6 @@ ZeroDivisionError: division by zero
     - Can run all tests (arrow at top, next to Test Explorer)
     - Can run just one test file (green arrow next to test file name)
     - Can run a single test within a file (expand that test file, then green arrow next to text)
-6. Now you should also be able to run and the debug the tests in the VS Code Debugger by selecting the "Debug Test" link above the test name (in the test.py file)
 
 
 ## Reading Pytest results
@@ -37,7 +36,6 @@ ZeroDivisionError: division by zero
 3. `short test summary info` will print a short test summary info, including overall how many tests passed or failed, and how long the tests took to run.
 
 
-
 ## Debugging tricks
 
 ### Breakpoints
@@ -45,3 +43,19 @@ A **breakpoint** is a place (line of code) which indicates to the debugger to 
 
 ### Watches
 Sometimes we need to track the value of an expression that is never stored in a variable. We can supply the debugger tool with expressions to watch. The debugger lists and shows the current value of each watched expression through the entire program execution.
+
+## Debugging with Breakpoints - Example Workflow
+
+1. Put a breakpoint at the line of code that is causing the program to crash
+2. Go to debugger
+3. You may need to click on the select list, select Add Configuration and choose select Python: Current File. You may need to click on the select list, select Add Configuration and choose select Python: Current File.
+4. Run the debugger by pressing green triangle "play" button
+
+## Debugging a Failing Test - Example Workflow 
+
+
+1. Run the tests from the test explorer
+2. Find the .py file of the failing test
+3. Now you have two options:
+   1. Create a breakpoint in the failing test and use the step-into and step over commands to trace through the code and see why the test is failing
+   2. Select the Debug Test link above the test function to run that one test in the debugger.

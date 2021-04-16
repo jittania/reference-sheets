@@ -41,3 +41,12 @@
 5. Add more details by clicking "Create pull request" 
 6. Finish this PR by clicking "Create pull request"
 7. Grab the URL of this PR, typically https://github.com/<some-ada-repo>/<project-name>/pulls
+
+
+## **Importing and Project Organization** (probably move this section into a new md file)
+Syntax | Meaning
+--- | ---
+`from name_of_package.name_of_module import Class` | how to import a class, using the names of the module (just name of module, ommitt the .py) and the package it lives in
+`from .name_of_class_module import Class` | relative import 
+`from name_of_class_module import Class` | absolute import 
+`from name_of_module import *` | ?

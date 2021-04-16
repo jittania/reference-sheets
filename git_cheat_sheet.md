@@ -48,7 +48,7 @@
 Note: Committing changes to a branch will not affect other branches and you can share branches with others without having to merge the changes into the main project. You can also create new branches to isolate changes for a feature or a bug fix from your master branch and other work.
 
       1. Creating a new branch in your local repository:
-            1. Navigate to "Source Control" (the branch icon) 
+            1. Navigate to the "Source Control" window (the branch icon) 
             2. Click the master branch from the bottom left.
             3. Select "Create new branch from" and enter a name
             4. Select the master as the reference branch.
