@@ -28,7 +28,6 @@
     - If the code is broken, restart this process and make commits that will fix the problem
 10. Send all of your commits to `origin` with `git push`
 11. Review your work with `git status` and `git log`
-12. 
 
 ## Version Controlling with Git in Visual Studio Code
 
@@ -45,14 +44,14 @@
 
 4. Working with branches:
 
-Note: Committing changes to a branch will not affect other branches and you can share branches with others without having to merge the changes into the main project. You can also create new branches to isolate changes for a feature or a bug fix from your master branch and other work.
+    Note: Committing changes to a branch will not affect other branches and you can share branches with others without having to merge the changes into the main project. You can also create new branches to isolate changes for a feature or a bug fix from your master branch and other work.
 
-      1. Creating a new branch in your local repository:
-            1. Navigate to the "Source Control" window (the branch icon) 
-            2. Click the master branch from the bottom left.
-            3. Select "Create new branch from" and enter a name
-            4. Select the master as the reference branch.
-            5. You are now working on that branch.
+    **Creating a new branch in your local repository:**
+      1. Navigate to the "Source Control" window (the branch icon) 
+      2. Select the master branch
+      3. Select "Create new branch from" and enter a name
+      4. Select the master as the reference branch.
+      5. You are now working on that branch.
 
 
 
