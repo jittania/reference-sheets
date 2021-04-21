@@ -14,7 +14,7 @@ We can read this whole command as
 
 Therefore, the last argument should be a path where your current terminal location can access that downloaded sql file!
 
-## Interacting wWith Databases and Tables
+## Interacting With Databases and Tables
 
 syntax | meaning
 --- | ---
@@ -22,10 +22,10 @@ syntax | meaning
 `\c db_name` | connect to a database
 `\dt` | (must be connected to a database first!!) view a list of all tables that are within the connected database
 
-## Create a database
+## Creating databases
     CREATE DATABASE db_name;
 
-## Delete a database
+## Deleting databases
     DROP DATABASE db_name; 
 
 ## Creating Tables
@@ -48,7 +48,7 @@ syntax | meaning
         column_name data_type constraint_name
     );   
 
-## Delete a table
+## Deleting Tables
     DROP TABLE example_table_name;
 
 ## Adding Records
