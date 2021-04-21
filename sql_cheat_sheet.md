@@ -1,9 +1,3 @@
-`psql -U postgres` | open postgres terminal
-
-`psql -U postgres -d name_of_database < name_of_file.sql` | import a file (note that you must be in the same directory as the file (and exited out of postgres) for this command to work)
-
-
-
 
 ## Importing SQL Files
 
@@ -19,3 +13,61 @@ We can read this whole command as
 5. `RELATIVE/PATH/TO... .sql`: Put into the database this specific file
 
 Therefore, the last argument should be a path where your current terminal location can access that downloaded sql file!
+
+## Interacting wWith Databases and Tables
+
+syntax | meaning
+--- | ---
+`\l` | list all available Postgres databases on this machine
+`\c db_name` | connect to a database
+`\dt` | (must be connected to a database first!!) view a list of all tables that are within the connected database
+
+## Create a database
+    CREATE DATABASE db_name;
+
+## Delete a database
+    DROP DATABASE db_name; 
+
+## Creating Tables
+
+### General syntax:
+    CREATE TABLE example_table_name (
+        column_name data_type constraint_name,
+        column_name data_type constraint_name
+    );
+
+### Create a table with columns and a primary key:
+    CREATE TABLE example_table_name (
+        column_name data_type PRIMARY KEY,
+        column_name data_type constraint_name
+    );
+
+### Create a table with an auto-incrementing primary key:
+    CREATE TABLE example_table_name (
+        column_name INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+        column_name data_type constraint_name
+    );   
+
+## Delete a table
+    DROP TABLE example_table_name;
+
+## Adding Records
+    INSERT INTO table_name (column1, column2, column3, ...)
+    VALUES (value1, value2, value3, ...);
+
+## Retrieving Records
+
+### Specific columns from all records within a specific table:
+    SELECT column1, column2, column3, ... FROM table_name;
+
+### Get all columns and all records from a specific table:
+    SELECT * FROM table_name;
+
+## Updating Records
+    UPDATE table_name
+    SET column1 = value1, column2 = value2, ...
+    WHERE condition;
+
+## Deleting Records
+    DELETE FROM table_name
+    WHERE condition;
