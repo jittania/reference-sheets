@@ -1,5 +1,5 @@
 
-## Importing SQL Files
+## **Importing SQL Files**
 
     psql -U postgres -d intro_to_sql_problem_set < RELATIVE/PATH/TO/THIS/FILE/intro-to-sql-problemset.sql
 
@@ -14,7 +14,7 @@ We can read this whole command as
 
 Therefore, the last argument should be a path where your current terminal location can access that downloaded sql file!
 
-## Interacting With Databases and Tables
+## **Interacting With Databases and Tables**
 
 syntax | meaning
 --- | ---
@@ -22,13 +22,12 @@ syntax | meaning
 `\c db_name` | connect to a database
 `\dt` | (must be connected to a database first!!) view a list of all tables that are within the connected database
 
-## Creating databases
+## **Creating and Deleting Databases**
     CREATE DATABASE db_name;
 
-## Deleting databases
     DROP DATABASE db_name; 
 
-## Creating Tables
+## **Creating and Deleting Tables**
 
 ### General syntax:
     CREATE TABLE example_table_name (
@@ -48,26 +47,36 @@ syntax | meaning
         column_name data_type constraint_name
     );   
 
-## Deleting Tables
+### Deleting Tables
     DROP TABLE example_table_name;
 
-## Adding Records
+## **Managing Records**
+### Adding records:
     INSERT INTO table_name (column1, column2, column3, ...)
     VALUES (value1, value2, value3, ...);
 
-## Retrieving Records
-
-### Specific columns from all records within a specific table:
+### Get specific columns from all records within a specific table:
     SELECT column1, column2, column3, ... FROM table_name;
 
 ### Get all columns and all records from a specific table:
     SELECT * FROM table_name;
 
-## Updating Records
+### Updating records:
     UPDATE table_name
     SET column1 = value1, column2 = value2, ...
     WHERE condition;
 
-## Deleting Records
+### Deleting records:
     DELETE FROM table_name
     WHERE condition;
+
+## **Operator Precedence**
+
+from highest (`()`) to lowest, wherein the highest-precedence operator will be evaluated first, and then on down the priorty line.
+
+1. Parenthesis ( )
+2. DIVISION (/), MULTIPLICATION(*)
+3. ADDITION (+), SUBSTRACTION(-)
+4. NOT
+5. AND
+6. OR, ALL, ANY, BETWEEN, IN, LIKE
