@@ -1,7 +1,7 @@
 
 ## **Operator Precedence**
 
-from highest (parentheses `()`) to lowest (`OR, ALL, ANY` ... etc), wherein the highest-precedence operator will be evaluated first, and then on down the priorty line. Rather than relying on the precedence ordering, we can also be explicit about how we want our condition to be evaluated by using parentheses.
+From highest (parentheses `()`) to lowest (`OR, ALL, ANY` ... etc), wherein the highest-precedence operator will be evaluated first, and then on down the priorty line. Rather than relying on the precedence ordering, we can also be explicit about how we want our condition to be evaluated by using parentheses.
 
 1. Parentheses ( )
 2. DIVISION (/), MULTIPLICATION(*)
@@ -80,5 +80,13 @@ Syntax | Action
 `SELECT title, price FROM books ORDER BY price DESC;` | using `ORDER BY` and `DESC` to sort the results of a query in descending order
 `SELECT title, price FROM books ORDER BY price NULLS LAST;` | put any row with a price of `NULL` last in the results (by default, `ORDER BY` will put `NULL` values first)
 `SELECT columns_desired FROM table_name (additional optional clauses) LIMIT row_count;` | retrieiving a specific number of rows from a `SELECT` query
-`SELECT title FROM books WHERE genre = 'sci-fi' LIMIT x OFFSET n;` | adding an offset to a `LIMIT` clause, outputting a total of x records but also bypassing the first n records
+`SELECT title FROM books WHERE genre = 'sci-fi' LIMIT x OFFSET n;` | adding an offset to a `LIMIT` clause, outputting a total of x records while bypassing the first n records
 `SELECT title, price FROM books ORDER BY price DESC LIMIT n;` | combining `ORDER BY` and `LIMIT` to sort our records and then retrieving a subset of those sorted records
+
+## **Foreign Keys And Joining Tables**
+
+Syntax | Action
+---- | ----
+`CREATE TABLE table_name (column_name data_type PRIMARY KEY, column_name data_type constraint_name, FOREIGN KEY (foreign_key_id) REFERENCES other_table_name(id));` | connects a row in one table with one or many rows in another (one-to-one or one-to-many). Translating the last line: "this table has a foreign key column named `foreign_key_id` that references the `id` column in the table `other_table_name`"
+`CREATE TABLE books_genres (book_id INT, FOREIGN KEY (book_id) REFERENCES books(id), genre_id INT, FOREIGN KEY (genre_id) REFERENCES genres(id), PRIMARY KEY (book_id, genre_id));` | creates a join table between two tables, using the books and genres example (many-to-many relationship). The last expression is saying that the primary key for this table is the combo of the primary keys from both tables
+`SELECT field1, field2, field3, ...FROM table_name_a INNER JOIN table_name_b ON condition/* Optional WHERE clause */` |  using `INNER JOIN` to combine (join) and return all the rows in both tables which possess matching keys. Field names should be comma-separated, and often take the form of `table_name.column_name`. The conditional expression determines how the rows will be matched between the two tables
