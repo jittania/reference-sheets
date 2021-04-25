@@ -1,4 +1,8 @@
 
+[Markdown Syntax Guide](https://www.markdownguide.org/basic-syntax/)
+
+
+
 ## **Operator Precedence**
 
 From highest (parentheses `()`) to lowest (`OR, ALL, ANY` ... etc), wherein the highest-precedence operator will be evaluated first, and then on down the priorty line. Rather than relying on the precedence ordering, we can also be explicit about how we want our condition to be evaluated by using parentheses.
@@ -9,14 +13,16 @@ From highest (parentheses `()`) to lowest (`OR, ALL, ANY` ... etc), wherein the 
 4. =, >, <, >=, <=, <>, !=, !>, !< (Comparison operators)
 5. NOT
 6. AND
-7. OR, ALL, ANY, BETWEEN, IN, LIKE
+7. OR, ALL, ANY, BETWEEN, IN, LIKE  
 
+---
 
 ## **Importing SQL Files**
 
     psql -U postgres -d intro_to_sql_problem_set < RELATIVE/PATH/TO/THIS/FILE/intro-to-sql-problemset.sql
 
-where `RELATIVE/PATH/TO/THIS/FILE/intro-to-sql-problemset.sql` is the relative path to the downloaded .sql file
+where `RELATIVE/PATH/TO/THIS/FILE/intro-to-sql-problemset.sql` is the relative path to the downloaded .sql file  
+  
 
 We can read this whole command as
 1. `psql`: "Start the psql repl"
@@ -26,6 +32,8 @@ We can read this whole command as
 5. `RELATIVE/PATH/TO... .sql`: Put into the database this specific file
 
 Therefore, the last argument should be a path where your current terminal location can access that downloaded sql file!
+
+---
 
 ## **Interacting With Databases and Tables**
 

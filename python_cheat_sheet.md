@@ -1,7 +1,5 @@
-****# Python Syntax 
 
-[Click for Markdown Guide](https://guides.github.com/features/mastering-markdown/)
-
+[Markdown Syntax Guide](https://www.markdownguide.org/basic-syntax/)
 
 
 
@@ -32,18 +30,8 @@ Error | Meaning
 `AttributeError: 'ExampleClassName' object has no attribute 'missing_attribute_name'` | suggests that we are trying to read an attribute from an instance of this class, but that attribute doesn't have a value
 `TypeError: __init__() takes 0 positional arguments but 1 was given` | This suggests that the constructor doesn't define the first parameter `self`
 
-## **Testing Objects**
 
-    def test_some_example_test_case():
-        # Arrange
-        # Create an instance of the class
-        # and set up any other necessary test variables
-
-        # Act
-        # Call the method that we are testing
-
-        # Assert
-        # Verify all relevant return values and state changes
+---
 
 ## **Variables and Mutability**
 
@@ -61,6 +49,7 @@ Whereas... **MUATBLE objects do not change object IDs when the object is modif
 
 Together that means... **when you call a function, you pass a reference from the argument to the parameter, so they're both going to refer to the same object in memory. if it's a mutable object, like a list or dictionary, anything you do to the parameter, gets reflected back to the original argument.**
 
+---
 
 ## **Conditional Operators**
 
@@ -121,3 +110,17 @@ Operator | Meaning
 `and`	| Boolean AND
 `or`	| Boolean OR
 `lambda`	| Lambda expression
+
+---
+
+## Frequency Map Template
+
+    def map_character_frequency(words):
+        char_map = {}
+        for word in words:
+            for character in word:
+                if character not in char_map:
+                    char_map[character] = 1
+                else:
+                    char_map[character] += 1
+        return char_map
