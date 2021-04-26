@@ -48,10 +48,10 @@
 
     **Creating a new branch in your local repository:**
       1. Navigate to the "Source Control" window (the branch icon) 
-      2. Select the master branch
-      3. Select "Create new branch from" and enter a name
-      4. Select the master as the reference branch.
-      5. You are now working on that branch.
+      2. Look at the far left corner of the blue status bar at the bottom of the screen, which tells you which branch you're working on (you can click on it directly to change it) - make sure it's on "master branch"
+      4. Select "Create new branch from" and enter a name
+      5. Select the master as the reference branch.
+      6. You are now working on that branch.
 
 
 
