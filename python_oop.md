@@ -21,10 +21,57 @@ Syntax | Used To...
 `vars()` | makes a dictionary of an object's attributes (helpful for debugging)
 
 
-
 ## **Typical OOP-Related Errors**
 Error | Meaning
 --- | ---
 `NameError: name 'ExampleClassName' is not defined` | This suggests that the class named `ExampleClassName` hasn't been defined before trying to instantiate it
 `AttributeError: 'ExampleClassName' object has no attribute 'missing_attribute_name'` | suggests that we are trying to read an attribute from an instance of this class, but that attribute doesn't have a value
 `TypeError: __init__() takes 0 positional arguments but 1 was given` | This suggests that the constructor doesn't define the first parameter `self`
+
+---
+
+## **Decorator Pattern Syntax (in Python)**
+
+    def wrapper_function(wrapped_func):
+        def inner():
+
+            # some wrapper logic
+
+            wrapped_func()
+
+            # some wrapper logic
+
+        return inner
+
+    @wrapper_function
+    def wrapped_function():
+        # replace pass with whatever function logic
+        pass
+
+---
+
+## **Static Methods Syntax**
+
+    class ExampleClass:    
+
+        @staticmethod
+        def example_method():
+            print("I'm inside the static method, example_method!")
+
+## **Class Methods Syntax**
+
+    class ExampleClass:    
+
+        @classmethod
+        def example_method(cls):
+            print("I'm inside the class method, example_method!")
+            print("In a class method, cls will be the class itself", cls)
+
+
+## **Comparing Python Methods: Instance, Class, Static**
+
+Method | Parameter | Decorator | Accessing
+--- | --- | --- | ---
+Instance Method (Most Common) | must have `self` parameter | no decorator needed | can be accessed through object (instance of Class) 
+Class Method | doesn't need `self`, but does need `cls` parameter | needs decorator `@classmethod` | can be accessed directly through class; doesn't need instance of class
+Static Method | doesn't need `self` or `cls` parameter | needs decorator `@staticmethod` | can only access variables passed as argument; a static method cannot be accessed through class or its instance
