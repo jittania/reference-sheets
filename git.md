@@ -29,7 +29,17 @@
 10. Send all of your commits to `origin` with `git push`
 11. Review your work with `git status` and `git log`
 
-## Version Controlling with Git in Visual Studio Code
+## **More Git Commands For Terminal**
+Syntax | Action
+--- | ---
+`git branch` | lists existing branches 
+`git checkout <existing_branch>` | switch to an existing branch
+`git checkout -b <new_branch>` | create a new branch and switch to it
+
+
+---
+
+## **Version Controlling with Git in Visual Studio Code**
 
 1. From VS Code: Press Ctrl+Shift+P to show the Command Palette
 
