@@ -39,6 +39,7 @@ Therefore, the last argument should be a path where your current terminal locati
 
 syntax | meaning
 --- | ---
+`psql -U postgres` | opens the Postgres interactive terminal with a Postgres user named `postgres`
 `\l` | list all available Postgres databases on this machine
 `\c db_name` | connect to a database
 `\dt` | (must be connected to a database first!!) view a list of all tables that are within the connected database
