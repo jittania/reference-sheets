@@ -173,6 +173,86 @@ Making the `Book` Model Visible during the `app` start-up by adding this cod
 
 Confirm successful migration by connecting to Postgres, then connecting to database 
 
+---
+
+
+## **Example : Creating a `POST` Endpoint**
+
+### **Plan:**
+
+Identify the following based on the given prompt:
+   - the HTTP Method
+   - Endpoint
+   - Request body
+   - Appropriate successful response status code 
+
+### **Write Code:**
+
+Adding to `routes.py`:
+        # import the necessary modules for our Book model
+        from app import db
+        from app.models.book import Book
+
+        # We need to import our dependencies. Python supports comma-separated importing.
+        from flask import request, Blueprint, make_response
+
+        # Our Blueprint instance. We'll use it to group routes that start with /books.
+        books_bp = Blueprint("books", __name__, url_prefix="/books")
+
+        # A decorator that uses the books_bp Blueprint to define an endpoint and accepted HTTP method
+        @books_bp.route("", methods=["POST"])
+        # This function will execute whenever a request that matches the decorator is received
+        def handle_books():
+            # get the request body as a Python dictionary 
+            request_body = request.get_json()
+            # making a new book 
+            new_book = Book(title=request_body["title"],
+                            description=request_body["description"])
+            # we want the database to add new_book (staging)
+            db.session.add(new_book)
+            # we want the database to save and commit the collected changes
+            db.session.commit()
+
+            # For each endpoint, we must return the HTTP response
+            return make_response(f"Book {new_book.title} successfully created", 201)
+
+
+### **Register a Blueprint:**
+Then, we must register the blueprint within our `create_app` function in `app/__init__.py`. 
+
+        def create_app():
+            app = Flask(__name__)
+
+            # ... existing code that did
+            # app config...
+            # db initialization...
+            # migrate initialization...
+            # import models...
+            # create the models...
+
+            from .routes import books_bp
+            app.register_blueprint(books_bp)
+
+            # ... return app
+
+### **Manually Test Code:**
+
+Make sure Flask is running!
+
+**With Postman**:
+
+1. Set the method to POST
+2. Set the request URL to localhost:5000/books
+3. Configure an HTTP response body to raw and JSON, and add in the sample request body
+
+**With `psql`**:
+
+1. Start up `psql` 
+2. Connect to our database 
+3. Run an appropriate query to get the records from the `book` table
+
+
+---
 
 ## **Dev Workflow**
 
