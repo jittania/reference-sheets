@@ -1,6 +1,10 @@
-## **Flask Set up**
+## **Flask Project Set up**
 
-At the beginning of the project, or after any updates to this file, we install all dependencies with (have to be in virtual environment!):
+1. **Pull down all new Git commits**
+
+2. **Create and activate virtual environment**
+
+3. **At the beginning of the project, or after any updates to this file, we install all dependencies with (have to be in virtual environment!):**
 
     (venv) $ pip install -r requirements.txt
 
@@ -8,7 +12,11 @@ To update the requirements.txt file, we use this command:
 
     (venv) $ pip freeze > requirements.txt
 
-## **Server Commands**
+4. **Do this thing?**
+
+`(venv) $ flask db upgrade`
+
+5. **Start the Flask server:** 
 
 Syntax | Action
 --- | ---
@@ -32,7 +40,7 @@ CTRL + C | stops a Flask server
     ├── README.md
     └── requirements.txt
 
-
+---
 
 ## **Creating Blueprints and Endpoints**
 
@@ -176,12 +184,12 @@ Confirm successful migration by connecting to Postgres, then connecting to datab
 ---
 
 
-## **Example : Creating a `POST` Endpoint**
+## **Example : Creating an Endpoint**
 
 ### **Plan:**
 
 Identify the following based on the given prompt:
-   - the HTTP Method
+   - the HTTP Method (in this case, `POST`)
    - Endpoint
    - Request body
    - Appropriate successful response status code 
@@ -235,21 +243,82 @@ Then, we must register the blueprint within our `create_app` function in `app/__
 
             # ... return app
 
+---
+
+## **Example: Updating an Endpoint**
+
+### **Plan:**
+
+Identify the following based on the given prompt:
+   - the HTTP Method (in this case, `PUT`)
+   - Endpoint
+   - Request body
+   - Appropriate successful response status code 
+
+### **Write Code:**
+    # This route's matching methods now need to be updated to handle PUT requests
+    @books_bp.route("/<book_id>", methods=["GET", "PUT"])
+    def handle_book(book_id):
+        book = Book.query.get(book_id)
+
+        if request.method == "GET":
+            # ... existing code that returned a dictionary
+        elif request.method == "PUT":
+            form_data = request.get_json()
+
+            book.title = form_data["title"]
+            book.description = form_data["description"]
+
+            db.session.commit()
+
+            return make_response(f"Book #{book.id} successfully updated")
+
+
+---
+
+## **Example: Deleting an Endpoint**
+
+### **Plan:**
+
+Identify the following based on the given prompt:
+   - the HTTP Method (in this case, `DELETE`)
+   - Endpoint
+   - No request body needed for deleting an endpoint
+   - Appropriate successful response status code 
+
+### **Write Code:**
+
+    @books_bp.route("/<book_id>", methods=["GET", "PUT", "DELETE"])
+    def handle_book(book_id):
+        book = Book.query.get(book_id)
+
+        if request.method == "GET":
+            # ... existing code for getting a single book
+        elif request.method == "PUT":
+            # ... existing code for updating a single book
+        elif request.method == "DELETE":
+            db.session.delete(book)
+            db.session.commit()
+            return make_response(f"Book #{book.id} successfully deleted")
+
+
+---
+
 ### **Manually Test Code:**
 
-Make sure Flask is running!
+First - make sure Flask is running! Use `FLASK_ENV=development flask run`
 
 **With Postman**:
 
-1. Set the method to POST
-2. Set the request URL to localhost:5000/books
+1. Set the method 
+2. Set the request URL 
 3. Configure an HTTP response body to raw and JSON, and add in the sample request body
 
 **With `psql`**:
 
-1. Start up `psql` 
-2. Connect to our database 
-3. Run an appropriate query to get the records from the `book` table
+1. Start up `psql` with `psql -U postgres`
+2. Connect to  database with `\c db_name`
+3. Run an appropriate query to get the records from the `book` table, such as `SELECT * FROM table_name`
 
 
 ---
