@@ -1,10 +1,8 @@
-## **Flask Project Set up**
+## **Flask Project One-time Set Up**
 
-1. **Pull down all new Git commits**
-
-2. **Create and activate virtual environment**
-
-3. **At the beginning of the project, or after any updates to this file, we install all dependencies with (have to be in virtual environment!):**
+1. Fork and clone, `cd` into project root folder
+2. Create virtual environment
+3. At the beginning of the project, OR after any updates to this file, install all dependencies with (have to be in virtual environment!):
 
     (venv) $ pip install -r requirements.txt
 
@@ -12,11 +10,7 @@ To update the requirements.txt file, we use this command:
 
     (venv) $ pip freeze > requirements.txt
 
-4. **Do this thing?**
-
-`(venv) $ flask db upgrade`
-
-5. **Start the Flask server:** 
+4. Start the Flask server
 
 Syntax | Action
 --- | ---
@@ -27,6 +21,21 @@ Syntax | Action
 CTRL + C | stops a Flask server
 
 
+## **Flask Project Workflow**
+
+Our modified dev workflow for Flask development may now look like this:
+
+1. `cd` into a project root folder
+2. Activate a virtual environment
+3. Check git status and pull down commits 
+4. Update local database using `flask db upgrade`
+5. Start the server
+6. Cycle frequently between:
+    1. Writing code
+    2. Checking git statuses and making git commits
+    3. Debugging with Postman, server logs, VS Code, and more
+7. Stop the server
+8. Deactivate the virtual environment
    
 ---
 
@@ -80,7 +89,7 @@ CTRL + C | stops a Flask server
 
 ---
 
-## **Setting up Models in Flask**
+## **Setting up Models in Flask: An Overview**
     .
     ├── app
     │   ├── models
@@ -163,7 +172,7 @@ Making the `Book` Model Visible during the `app` start-up by adding this cod
 
 ---
 
-## **Database Migrations Workflow**
+## **Database Migrations Overview**
 
 1. **Set up the database on the Flask end once - this tells Flask how to connect to the database**
 
@@ -186,7 +195,7 @@ Confirm successful migration by connecting to Postgres, then connecting to datab
 
 ## **Example : Creating an Endpoint**
 
-### **Plan:**
+### **Preparation:**
 
 Identify the following based on the given prompt:
    - the HTTP Method (in this case, `POST`)
@@ -247,7 +256,7 @@ Then, we must register the blueprint within our `create_app` function in `app/__
 
 ## **Example: Updating an Endpoint**
 
-### **Plan:**
+### **Preparation:**
 
 Identify the following based on the given prompt:
    - the HTTP Method (in this case, `PUT`)
@@ -278,7 +287,7 @@ Identify the following based on the given prompt:
 
 ## **Example: Deleting an Endpoint**
 
-### **Plan:**
+### **Preparation:**
 
 Identify the following based on the given prompt:
    - the HTTP Method (in this case, `DELETE`)
@@ -304,6 +313,113 @@ Identify the following based on the given prompt:
 
 ---
 
+## **Example: Finding, Updating, Deleting, etc a Missing Book**
+
+"As a client, I want to send a request trying to get one non-existing book and get a 404 response, so I know that the book resource was not found." 
+
+In other words, the endpoint will need to:
+
+1. Read the `book_id` in the request path
+2. Retrieve the book with the matching `book_id` from the db
+3. Discover that there is no matching book with `book_id` in the db
+4. Send back a response
+
+### **Preparation:**
+
+Identify the following based on the given prompt:
+   - the HTTP Method (in this case, `GET`)
+   - Endpoint (can use our existing endpoint that reads a record, but using an invalid id)
+   - No request body needed for `GET` requests
+   - Appropriate successful response status code (`404 Not Found`)
+
+
+### **Write Code:**
+
+1. **Just for one endpoint with a specific verb(s)**
+
+    @books_bp.route("/<book_id>", methods=["GET", "PUT", "DELETE"])
+    def handle_book(book_id):
+        book = Book.query.get(book_id)
+
+        if request.method == "GET":
+            if book is None:
+                return make_response("", 404)
+            return {
+                "id": book.id,
+                "title": book.title,
+                "description": book.description
+            }
+        # ... existing code for updating a single book
+        # ... existing code for deleting a single book
+
+2. **Can also just add a `None` check before checking for verb**
+
+    @books_bp.route("/<book_id>", methods=["GET", "PUT", "DELETE"])
+    def handle_book(book_id):
+        book = Book.query.get(book_id)
+        if book is None:
+            return make_response("", 404)
+
+        if request.method == "GET":
+            return {
+                "id": book.id,
+                "title": book.title,
+                "description": book.description
+            }
+        # ... existing code for updating a single book
+        # ... existing code for deleting a single book
+
+---
+
+## **Even More Query Stuff**
+
+Syntax | Action
+------ | ------
+`Book.query.filter_by(title="Fictional Book Title")` | use give keyword arguments to describe the attribute and value on which we're filtering
+`Book.query.limit(100).all()` |  limit the number of results in our queries
+`query_param_value = request.args.get(query_param_key)` | using the `request.args` object to get the value from any query param and assign it to a variable `query_param_value`
+
+
+---
+
+## **Example: Using Query Params** 
+
+"As a client, I want to send a request trying to get a list of books with a matching title, so I know which books have a matching title."
+
+In other words, the endpoint will need to:
+
+1. Check if the HTTP method is GET
+2. Check if we have a query param for title
+3. If we have a title query param, retrieve all of the books from the database that match, otherwise retrieve all books as usual
+4. Format the books data into the appropriate structure (list of dictionaries, where each dictionary has id, title, and description)
+5. Send back a response
+
+### **Preparation:**
+
+Identify the following based on the given prompt:
+   - the HTTP Method (in this case, `GET`)
+   - Endpoint (`/books?title=Apples`)
+   - No request body needed for `GET` requests
+   - Appropriate successful response status code (`200 OK` for the response status code, and a JSON response body representing a list of books)
+
+
+### **Write Code:**
+
+    @books_bp.route("", methods=["GET", "POST"])
+    def handle_books():
+        if request.method == "GET":
+            # this code replaces the previous query all code
+            title_query = request.args.get("title")
+            if title_query:
+                books = Book.query.filter_by(title=title_query)
+            else:
+                books = Book.query.all()
+            # end of the new code
+
+
+
+---
+
 ### **Manually Test Code:**
 
 First - make sure Flask is running! Use `FLASK_ENV=development flask run`
@@ -323,18 +439,5 @@ First - make sure Flask is running! Use `FLASK_ENV=development flask run`
 
 ---
 
-## **Dev Workflow**
 
-Our modified dev workflow for Flask development may now look like this:
-
-1. `cd` into a project root folder
-2. Activate a virtual environment
-3. Check git status
-4. Start the server
-5. Cycle frequently between:
-    1. Writing code
-    2. Checking git statuses and making git commits
-    3. Debugging with Postman, server logs, VS Code, and more
-6. Stop the server
-7. Deactivate the virtual environment
 
