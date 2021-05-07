@@ -173,6 +173,7 @@ Syntax | Action
 `Book.query.filter_by(title="Fictional Book Title")` | use give keyword arguments to describe the attribute and value on which we're filtering
 `Book.query.limit(100).all()` |  limit the number of results in our queries
 `query_param_value = request.args.get(query_param_key)` | using the `request.args` object to get the value from any query param and assign it to a variable `query_param_value`
+`list_sorted_by_col_attribute = Model_name.query.order_by(asc(Model_name.col_attribute))` | must include `from sqlalchemy import asc` in file. Assumes table with model_name already migrated. Also works with `desc` 
 
 
 ---
