@@ -12,15 +12,15 @@
 6. When you have a small, meaningful change, get ready to make a commit:
     1. `cd` into project
     2. Move the intended changes from local changes area to staging with 
-         - `git add name_of_file.py` (just adding one file)
+         - `git add name_of_file` (adding specific file(s))
          - `git add .` (to select all files under the current directory)
          - `git add -p` 
             - This starts an interactive mode where local code changes will be presented on the screen one at a time.
             - At each chunk, we can decide whether the change should go into staging: `y` then enter for "yes," `n` then enter for "no."
             - This mode cycles through all chunks in the local changes area, then exits the interactive mode
             - This method encourages reviewing code changes
-    1. Create a commit and a commit message from the changes in staging with `git commit -m ""`
-    2. Review the commit with `git show`, then exit that view and get back to command line with `q`
+    3. Create a commit and a commit message from the changes in staging with `git commit -m ""`
+    4. Review the commit with `git show`, then exit that view and get back to command line with `q`
 7. Create at least one commit. Continue to write code and make commits.
         - Commits are always made against your local Git repository, so you don’t have to worry about the commit being perfect or ready to share with others.
 8. Fetch and merge any new commits from `origin` with `git pull`
@@ -29,12 +29,18 @@
 10. Send all of your commits to `origin` with `git push`
 11. Review your work with `git status` and `git log`
 
-## **More Git Commands For Terminal**
+## **Moar Git Commands**
 Syntax | Action
 --- | ---
 `git branch` | lists existing branches 
 `git checkout <existing_branch>` | switch to an existing branch
 `git checkout -b <new_branch>` | create a new branch and switch to it
+`git diff HEAD` | after a `git add` command, this command will list show the changes made since most recent commit
+`git remote` | Shows names of remote repositories 
+`git remote -v` | Shows names and URLs of remote repositories 
+`git config --global push.default current` | This will make sure, that when you run only git push without specifying the branch name, it will push to the remote repo from the local machine’s existing branch to the same branch in remote repo. That is, it should pushes the current branch to update a branch with the same name on the receiving end.
+`git push <repo name> <branch name>` | general syntax for pushing to specific repo and branch
+`git push <repo name> <from this branch>:<to this branch>` | optional syntax for pushing from one branch to another
 
 
 ---
@@ -43,7 +49,7 @@ Syntax | Action
 
 1. From VS Code: Press Ctrl+Shift+P to show the Command Palette
 
-2. Execute the "Git: Clone command". It may help to type “Git” to bring it to the shortlist. Select a local path to clone the repo to. Open the cloned repository
+2. Execute the "Git: Clone command". It may help to type “Git” to bring it to the shortlist. Select a local path to clone the repo to. Open the cloned repository.
 
 3. Committing changes:
 
