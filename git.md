@@ -35,10 +35,11 @@ Syntax | Action
 `git branch` | lists existing branches 
 `git checkout <existing_branch>` | switch to an existing branch
 `git checkout -b <new_branch>` | create a new branch and switch to it
+`git branch -m <new_name>` | rename a LOCAL branch. must be on the branch that you want to rename 
 `git diff HEAD` | after a `git add` command, this command will list show the changes made since most recent commit
 `git remote` | Shows names of remote repositories 
 `git remote -v` | Shows names and URLs of remote repositories 
-`git config --global push.default current` | This will make sure, that when you run only git push without specifying the branch name, it will push to the remote repo from the local machine’s existing branch to the same branch in remote repo. That is, it should pushes the current branch to update a branch with the same name on the receiving end.
+`git config --global push.default current` | One-time optional commnand!! This will ensure that when you run only git push without specifying the branch name, it will push to the remote repo from the local machine’s existing branch to the same branch in remote repo. That is, it should pushes the current branch to update a branch with the same name on the receiving end.
 `git push <repo name> <branch name>` | general syntax for pushing to specific repo and branch
 `git push <repo name> <from this branch>:<to this branch>` | optional syntax for pushing from one branch to another
 
