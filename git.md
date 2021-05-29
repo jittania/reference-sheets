@@ -32,8 +32,11 @@
 ## **Moar Git Commands**
 Syntax | Action
 --- | ---
+`git status` | lists the uh, status
 `git branch` | lists existing branches 
-`git checkout <existing_branch>` | switch to an existing branch
+`git switch <destination-branch-name>` | switch to an existing branch (new)
+`git checkout <existing_branch>` | switch to an existing branch (old-school)
+`git branch <new-branch-name>` | create a new branch
 `git checkout -b <new_branch>` | create a new branch and switch to it
 `git branch -m <new_name>` | rename a LOCAL branch. must be on the branch that you want to rename 
 `git branch -d localBranchName` | delete branch locally
