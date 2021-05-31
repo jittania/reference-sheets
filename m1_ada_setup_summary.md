@@ -1,4 +1,4 @@
-# Wiping M1
+# Erase HD and Reinstall Big Sur
 
 Follow directions to start in macOS Recovery, wipe, and reinstall macOS
 
