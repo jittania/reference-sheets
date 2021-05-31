@@ -12,18 +12,19 @@ https://support.apple.com/guide/mac-help/macos-recovery-a-mac-apple-silicon-mchl
 
 
 
-- [ ] install Xcode's command line tools with: 
+- [ ] Install Xcode's command line tools with: 
 
         $ xcode-select --install
 
 
-- [ ] install Homebrew, Pip 3, Python 3, Git (will need GitHub log in info), Node
+- [ ] Install Homebrew, Pip 3, Python 3, Git (will need GitHub log in info), Node with:
 
         $ /bin/bash -c "$(curl -fsSL https://gist.githubusercontent.com/CheezItMan/e31aebdb0f686c1a194e980b24f3cea4/raw/5710e04d17a7840df3df0ea95502da275a9943cb/ada_c14_installfest.bash)"
 
-- [ ] Homebrew offers some other optional things that you will also be prompted to install, and which are all recommended for Ada: Firefox, Google Chrome, VS Code, Slack
 
-Then make sure to quit and restart your terminal after Homebrew installation
+- [ ] The Homebrew installation sequence offers some other optional things that you will also be prompted to install, and which are all recommended for Ada: Firefox, Google Chrome, VS Code, Slack
+
+**Then make sure to quit and restart your terminal after Homebrew installation to ensure that this stuff works**
 
 
 - [ ] Verify Homebrew installation (the following should prompt 'Your system is ready to brew')
@@ -32,13 +33,19 @@ Then make sure to quit and restart your terminal after Homebrew installation
 
 
 
-- [ ] Verify Python, pip, git installation:
+- [ ] Verify Python, pip, git installation with:
   
         $ python --version
         $ pip --version
         $ git --version
 
-- [ ] Check that git was installed properly with 
+
+- [ ] Verify that git was installed properly with:
+
+        $ git config --get user.name
+        $ git config --get user.email
+
+Which should display your GitHub username and email address
 
 
 - [ ] Install VS Code if you didn't during the Homebrew set up: https://code.visualstudio.com
@@ -58,15 +65,20 @@ Then make sure to quit and restart your terminal after Homebrew installation
   - [ ] ESLint  - A style checker for JavaScript code.
 
 
-- [ ] From VS Code, open the command-palette with Shift-Command-P and enter Python: select interpreter
+- [ ] Set VS Code interpreter to Python: From VS Code, open the command-palette with Shift-Command-P and enter Python: select interpreter
 
 
-- [ ] Install Oh My Zsh
+- [ ] Optional: Set zsh as the default shell
+  - [ ] Start termainl and go to "Preferences"
+  - [ ] Then set the Shells open with: to /bin/zsh
+
+
+- [ ] Optional: Install Oh My Zsh
 
         $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
-- [ ] Install Rectangle
+- [ ] Optional: Install Rectangle
 
 ---
 
