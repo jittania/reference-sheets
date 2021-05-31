@@ -66,6 +66,15 @@ https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3766a0f2-c498
 
 ---
 
+# Unit 1
+
+- [ ] Install pytest
+
+        pip3 install -U pytest
+
+---
+
+
 # Unit 2
 
 - [ ] Install Postgres
