@@ -8,10 +8,7 @@ https://support.apple.com/guide/mac-help/macos-recovery-a-mac-apple-silicon-mchl
 
 ---
 
-# Ada M1 Installfest
-
-Chris's live demo:
-https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3766a0f2-c498-4b51-a7d0-ac9e01835af7&start=undefined
+# Ada Installfest
 
 
 
@@ -20,14 +17,19 @@ https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3766a0f2-c498
         $ xcode-select --install
 
 
-- [ ] install homebrew, Git, and python3 with
+- [ ] install Homebrew, Pip 3, Python 3, Git (will need GitHub log in info), Node
 
-        $ /bin/bash -c "$(curl -fsSL https://gist.githubusercontent.com/CheezItMan/2c883fc0c43ab44a5554d663995fe92e/raw/12cafa8e8d26c34d3d272c9da9c4402897dd4cca/install_python_apple_m1.bash)"
+        $ /bin/bash -c "$(curl -fsSL https://gist.githubusercontent.com/CheezItMan/e31aebdb0f686c1a194e980b24f3cea4/raw/5710e04d17a7840df3df0ea95502da275a9943cb/ada_c14_installfest.bash)"
+
+- [ ] Homebrew offers some other optional things that you will also be prompted to install, and which are all recommended for Ada: Firefox, Google Chrome, VS Code, Slack
+
+Then make sure to quit and restart your terminal after Homebrew installation
 
 
 - [ ] Verify Homebrew installation (the following should prompt 'Your system is ready to brew')
 
         $ brew doctor 
+
 
 
 - [ ] Verify Python, pip, git installation:
@@ -36,8 +38,10 @@ https://adaacademy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3766a0f2-c498
         $ pip --version
         $ git --version
 
+- [ ] Check that git was installed properly with 
 
-- [ ] Install VS Code: https://code.visualstudio.com
+
+- [ ] Install VS Code if you didn't during the Homebrew set up: https://code.visualstudio.com
 
 
 - [ ] In VS Code, type shift + cmd + p and type shell command to install the terminal shell command (one-time set up that allows you to open VS Code from the terminal)
