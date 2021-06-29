@@ -12,35 +12,37 @@ https://support.apple.com/guide/mac-help/macos-recovery-a-mac-apple-silicon-mchl
 
 
 
-- [ ] Install Xcode's command line tools with: 
+- [X] Install Xcode's command line tools with: 
 
         $ xcode-select --install
 
 
-- [ ] Install Homebrew, Pip 3, Python 3, Git (will need GitHub log in info), Node with:
+- [X] Install Homebrew, Pip 3, Python 3, Git (will need GitHub log in info), Node with:
+
+**Check that this is the M1 or Intel one first!!**
 
         $ /bin/bash -c "$(curl -fsSL https://gist.githubusercontent.com/CheezItMan/e31aebdb0f686c1a194e980b24f3cea4/raw/5710e04d17a7840df3df0ea95502da275a9943cb/ada_c14_installfest.bash)"
 
 
-- [ ] The Homebrew installation sequence offers some other optional things that you will also be prompted to install, and which are all recommended for Ada: Firefox, Google Chrome, VS Code, Slack
+- [X] The Homebrew installation sequence offers some other optional things that you will also be prompted to install, and which are all recommended for Ada: Firefox, Google Chrome, VS Code, Slack
 
 **Then make sure to quit and restart your terminal after Homebrew installation to ensure that this stuff works**
 
 
-- [ ] Verify Homebrew installation (the following should prompt 'Your system is ready to brew')
+- [X] Verify Homebrew installation (the following should prompt 'Your system is ready to brew')
 
         $ brew doctor 
 
 
 
-- [ ] Verify Python, pip, git installation with:
+- [X] Verify Python, pip, git installation with:
   
         $ python --version
         $ pip --version
         $ git --version
 
 
-- [ ] Verify that git was installed properly with:
+- [X] Verify that git was installed properly with:
 
         $ git config --get user.name
         $ git config --get user.email
@@ -48,43 +50,43 @@ https://support.apple.com/guide/mac-help/macos-recovery-a-mac-apple-silicon-mchl
 Which should display your GitHub username and email address
 
 
-- [ ] Install VS Code if you didn't during the Homebrew set up: https://code.visualstudio.com
+- [X] Install VS Code if you didn't during the Homebrew set up: https://code.visualstudio.com
 
 
-- [ ] In VS Code, type shift + cmd + p and type shell command to install the terminal shell command (one-time set up that allows you to open VS Code from the terminal)
+- [X] In VS Code, type shift + cmd + p and type shell command to install the terminal shell command (one-time set up that allows you to open VS Code from the terminal)
 
 
 - [ ] Install recommended VS Code extensions:
   
   - [ ] Live Share  - A way to collaborate on source code like Google Docs.
-  - [ ] Markdown All in One  - An extension to help writing markdown files
-  - [ ] Python  - The standard Python extension to provide syntax highlighting and code suggestions.
-  - [ ] Indent Rainbow  - A nice extension to help you line up your indentations.
-  - [ ] Bracket Pair Colorizer  - This extension colors matching brackets {} to match and make them easier to identify.
-  - [ ] Python Test Explorer  - This extension lets you run tests individually in VS code via the Test Explorer UI.
-  - [ ] ESLint  - A style checker for JavaScript code.
+  - [X] Markdown All in One  - An extension to help writing markdown files
+  - [X] Python  - The standard Python extension to provide syntax highlighting and code suggestions.
+  - [X] Indent Rainbow  - A nice extension to help you line up your indentations.
+  - [X] Bracket Pair Colorizer  - This extension colors matching brackets {} to match and make them easier to identify.
+  - [X] Python Test Explorer  - This extension lets you run tests individually in VS code via the Test Explorer UI.
+  - [X] ESLint  - A style checker for JavaScript code.
 
 
-- [ ] Set VS Code interpreter to Python: From VS Code, open the command-palette with Shift-Command-P and enter Python: select interpreter
+- [X] Set VS Code interpreter to Python: From VS Code, open the command-palette with Shift-Command-P and enter Python: select interpreter
 
 
-- [ ] Optional: Set zsh as the default shell
-  - [ ] Start termainl and go to "Preferences"
-  - [ ] Then set the Shells open with: to /bin/zsh
+- [X] Optional: Set zsh as the default shell
+  - [X] Start terminal and go to "Preferences"
+  - [X] Then set the Shells open with: to /bin/zsh
 
 
-- [ ] Optional: Install Oh My Zsh
+- [X] Optional: Install Oh My Zsh
 
         $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
-- [ ] Optional: Install Rectangle
+- [X] Optional: Install Rectangle
 
 ---
 
 # Unit 1
 
-- [ ] Install pytest
+- [X] Install pytest
 
         pip3 install -U pytest
 
