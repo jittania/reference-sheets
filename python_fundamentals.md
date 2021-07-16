@@ -1,5 +1,70 @@
 [Markdown Syntax Guide](https://www.markdownguide.org/basic-syntax/)
 
+## **Errors & Exception Handling**
+
+There are three kinds of errors:
+
+1. **Syntax Errors**: raised by interpreter when it encounters syntax it doesn't understand during parsing
+2. **Runtime Errors**: occurs while our program is already running
+3. **Logical Errors**
+
+### Handling raised exceptions
+
+Raising an error to check if a value is numeric:
+
+    try:
+        x + 1
+    except ValueError as customer_error_var:
+        print(f"An exception occurred. Here are the error details: {customer_error_var}")
+
+---
+
+## **Lists**
+
+This is example syntax for modifying one element in a nested list.
+
+    my_list[inner_list_index][element_index] = new_value
+
+
+---
+
+## **Dictionaries**
+
+Use `my_dict.items()` to iterate over the key-value pairs of a dictionary:
+
+    for my_key, my_value in my_dict.items():
+        print(my_key, my_value)
+
+If you only need to loop over only the keys:
+
+    for my_key in my_dict:
+        print(my_key)
+
+**If you wanted to convert `my_dict.keys()` into a list, you would have to use `list(my_dict.keys())`**
+
+    for my_key in my_dict.keys():
+        print(my_key)
+
+Use `my_dict.values()` for looping over only values:
+
+    for my_value in my_dict.values():
+        print(my_value)
+
+---
+## **Nested**
+
+
+
+---
+
+## **Loops**
+
+Syntax | Meaning
+--- | ---
+`break` | A keyword that will exit an entire loop
+`continue` | A keyword that will immediately advance one interation in a loop
+`range(start, stop, step)` | creates a looping sequence wherein stop is exclusive
+
 ---
 
 ## **Variables and Mutability**
@@ -55,8 +120,9 @@ When `not` is in front of a truthy expression, the entire expression becomes `Fa
 
 from highest (`()`) to lowest (`lambda`), wherein the highest-precedence operator will be evaluated first, and then on down the priorty line.
 
-Note this important ranking:
-relationship operators > `not` > `and` > `or`
+**Note this important ranking:**
+
+relational operators > `not` > `and` > `or`
 
 Operator | Meaning
 --- | ---

@@ -37,21 +37,22 @@ Once everyone in your group has completed the baseline setup instructions above 
 
 Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:
 
-1. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`, selecting their own branch name based off the recipe scrap they have, and commit the changes they have made to the recipe.
-2. Each team member will push their changes up to github with `git push origin BRANCH-NAME`.
-3. Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your forked repository and NOT AdaGold.**
+1. Pull with `git pull origin <branch pulling FROM>`
+2. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`
+3. Each team member will push their changes up to github with `git push origin BRANCH-NAME`.
+4. Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your forked repository and NOT AdaGold.**
     - To make the PR against your team members forked respository and not AdaGold, we will need to change the base repository
     - If there is a report of a merge conflict you will need to:
-       - Pull the current state of master into **their feature branch** with `git pull origin master`
+       - Pull the current state of a remote branch into **their feature branch** with `git pull origin <branch pulling FROM>`
        - in VS code select **accept both changes**
        - Resolve the merge conflicts by rearranging the recipe and commit the result
        - Push the result up to github with `git push origin BRANCH-NAME`
        - Then attempt to merge their pull request.  If new changes have happened on master they may have to repeat step 1 above. 
-4. Merge changes simultaneously, kind of like the _ad-hoc_ strategy.
+5. Merge changes simultaneously, kind of like the _ad-hoc_ strategy.
     - **Remember**: Whoever on your team is merging their changes into master must successfully finish that process (including fixing any merge conflicts!) before the next person can begin.  Help them with resolving the conflicts.
     - Work with your fellow team members to resolve any merge conflicts.
-5. Once everyone's changes have been merged together, the group as a whole should review it for completeness.
-    - Make sure that none of the lines from your individual scrap are missing from the final result.
+6. Once everyone's changes have been merged together, the group as a whole should review it for completeness.
+    - Make sure that none of the lines from $$your individual scrap are missing from the final result.
     - If there are any fixes needed, pick one person in the group to make the necessary changes and commit them.
 
 
