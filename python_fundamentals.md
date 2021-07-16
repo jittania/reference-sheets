@@ -26,9 +26,15 @@ This is example syntax for modifying one element in a nested list.
     my_list[inner_list_index][element_index] = new_value
 
 
+
 ---
 
 ## **Dictionaries**
+
+Use `.pop()` to remove a key-value pair and return the vlaue:
+
+    removed_value = my_dict.pop("key to remove")
+
 
 Use `my_dict.items()` to iterate over the key-value pairs of a dictionary:
 
@@ -49,11 +55,6 @@ Use `my_dict.values()` for looping over only values:
 
     for my_value in my_dict.values():
         print(my_value)
-
----
-## **Nested**
-
-
 
 ---
 
