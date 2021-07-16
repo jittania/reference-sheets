@@ -2,21 +2,6 @@
 [Markdown Syntax Guide](https://www.markdownguide.org/basic-syntax/)
 
 
-
-## **Operator Precedence**
-
-From highest (parentheses `()`) to lowest (`OR, ALL, ANY` ... etc), wherein the highest-precedence operator will be evaluated first, and then on down the priorty line. Rather than relying on the precedence ordering, we can also be explicit about how we want our condition to be evaluated by using parentheses.
-
-1. Parentheses ( )
-2. DIVISION (/), MULTIPLICATION(*)
-3. ADDITION (+), SUBSTRACTION(-)
-4. =, >, <, >=, <=, <>, !=, !>, !< (Comparison operators)
-5. NOT
-6. AND
-7. OR, ALL, ANY, BETWEEN, IN, LIKE  
-
----
-
 ## **Importing SQL Files**
 
     psql -U postgres -d intro_to_sql_problem_set < RELATIVE/PATH/TO/THIS/FILE/intro-to-sql-problemset.sql
