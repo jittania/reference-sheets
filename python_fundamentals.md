@@ -21,11 +21,32 @@ Raising an error to check if a value is numeric:
 
 ## **Lists**
 
+
 This is example syntax for modifying one element in a nested list.
 
     my_list[inner_list_index][element_index] = new_value
 
 
+The `remove()` method will remove the **first instance** of a value in a list.
+
+    list = [1, 2, 3, 1]
+    list.remove(1) # Output: [2, 3, 1]
+
+The `pop()` method removes an element at a given index, and will also return the removed item.
+
+    numbers = [10, 20, 30, 40]
+    ten = numbers.pop(0)
+    print(ten) # Output: 10
+
+You can also use the `del` keyword in Python to remove an element or slice from a list.
+
+    numbers = [50, 60, 70, 80]
+    del numbers[1:2]
+    print(numbers) # [50, 70, 80]
+
+One other method from removing elements from a list is to take a slice of the list, which excludes the index or indexes of the item or items you are trying to remove. For instance, to remove the first two items of a list, you can do
+
+    list = list[2:]
 
 ---
 
