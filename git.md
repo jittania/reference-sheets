@@ -98,9 +98,7 @@ Syntax | Action
 
 *From Merge Conflict Carnival activity*
 
-Once everyone in your group has completed the baseline setup instructions above you're ready to start building the recipe together.
-
-Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:
+"Once everyone in your group has completed the baseline setup instructions above you're ready to start building the recipe together. Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:"
 
 1. Pull with `git pull origin <branch pulling FROM>`
 2. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`
@@ -117,5 +115,5 @@ Because each member of your group now has a different version of the recipe file
     - **Remember**: Whoever on your team is merging their changes into master must successfully finish that process (including fixing any merge conflicts!) before the next person can begin.  Help them with resolving the conflicts.
     - Work with your fellow team members to resolve any merge conflicts.
 6. Once everyone's changes have been merged together, the group as a whole should review it for completeness.
-    - Make sure that none of the lines from $$your individual scrap are missing from the final result.
+    - Make sure that none of the lines from your individual scrap are missing from the final result.
     - If there are any fixes needed, pick one person in the group to make the necessary changes and commit them.
