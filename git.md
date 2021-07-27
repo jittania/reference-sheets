@@ -11,6 +11,8 @@
 2.  Create an empty repo on GitHub
 3.  Link the local repository to an empty GitHub repository using the following command: `git remote add origin [url]`
 
+---
+
 ## **Git Workflow - Solo Project**
 
 1. Confirm that the project is in the state you expect with `git status`
@@ -30,12 +32,16 @@
     4. Review the commit with `git show`, then exit that view and get back to command line with `q`
 7. Create at least one commit. Continue to write code and make commits.
         - Commits are always made against your local Git repository, so you don’t have to worry about the commit being perfect or ready to share with others.
-8. Fetch and merge any new commits from `origin` with `git pull`
+8. Fetch and merge any new commits from `origin` with `git pull` 
+    - If pulling from a particular branch other than `main`, use `git pull origin <branch pulling FROM>`
 9.  Review the code; check that the tests still pass, and the code still runs
     - If the code is broken, restart this process and make commits that will fix the problem
-10. Send all of your commits to `origin` with `git push`
+10. Send all of your commits to `origin` with `git push`, or for more specificity, use:
+    -  `git push origin BRANCH-NAME` 
+    -  or, if pushing from one branch to another (usually `main`), `git push <repo name> <from this branch>:<to this branch>`
 11. Review your work with `git status` and `git log`
 
+---
 
 ## **Moar Git Commands**
 Syntax | Action
