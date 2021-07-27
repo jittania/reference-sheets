@@ -61,7 +61,7 @@ Syntax | Action
 `git config --global push.default current` | One-time optional commnand!! This will ensure that when you run only git push without specifying the branch name, it will push to the remote repo from the local machine’s existing branch to the same branch in remote repo. That is, it should pushes the current branch to update a branch with the same name on the receiving end.
 `git push <repo name> <branch name>` | general syntax for pushing to specific repo and branch
 `git push <repo name> <from this branch>:<to this branch>` | optional syntax for pushing from one branch to another
-`git reset --soft HEAD~1` | The easiest way to undo the last Git commit is to execute the “git reset” command with the “–soft” option that will preserve changes done to your files. You have to specify the commit to undo which is “HEAD~1” in this case (“HEAD~1” means that you want to reset the HEAD (the last commit) to one commit before in the log history)
+`git reset --soft HEAD~1` | The easiest way to undo the last Git commit is to execute the “git reset” command with the “–soft” option that will preserve changes done to your files. You have to specify the commit to undo which is `HEAD~1` in this case (`HEAD~1` means that you want to reset the HEAD (the last commit) to one commit before in the log history)
 
 
 ---
