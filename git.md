@@ -1,12 +1,19 @@
 ## **Git Set Up**
 
-1. `$ cd`  into the folder you want to clone your project into
-2. `$ git clone`  followed by the link to your project repo
-3. Projects are not tracked with Git (and therefore don't use Git) until it is initialized as a Git project. To turn any folder into a Git project, run this command in the project root: `$ git init`
+### **If you already have a remote repo set up on GitHub:**
+
+1.  Create a local folder for project 
+2.  `git clone`  followed by the link to your GitHub project repo
+
+### **If you've already created a project repo locally and want to put a remote repo on GitHub:**
+
+1.  Projects are not tracked with Git (and therefore don't use Git) until it is initialized as a Git project. To turn any folder into a Git project, run this command in the project root: `git init`
+2.  Create an empty repo on GitHub
+3.  Link the local repository to an empty GitHub repository using the following command: `git remote add origin [url]`
 
 ## **Git Workflow - Solo Project**
 
-1. Confirm that the project is in the state you expect with `$ git status`
+1. Confirm that the project is in the state you expect with `git status`
 4. Determine what your next task or goal is.
 5. Start running tests, writing code, etc.
 6. When you have a small, meaningful change, get ready to make a commit:
@@ -28,34 +35,6 @@
     - If the code is broken, restart this process and make commits that will fix the problem
 10. Send all of your commits to `origin` with `git push`
 11. Review your work with `git status` and `git log`
-
-## **Git Workflow - Group Project**
-
-*From Merge Conflict Carnival activity*
-
-Once everyone in your group has completed the baseline setup instructions above you're ready to start building the recipe together.
-
-Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:
-
-1. Pull with `git pull origin <branch pulling FROM>`
-2. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`
-3. Each team member will push their changes up to github with `git push origin BRANCH-NAME`.
-4. Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your forked repository and NOT AdaGold.**
-    - To make the PR against your team members forked respository and not AdaGold, we will need to change the base repository
-    - If there is a report of a merge conflict you will need to:
-       - Pull the current state of a remote branch into **their feature branch** with `git pull origin <branch pulling FROM>`
-       - in VS code select **accept both changes**
-       - Resolve the merge conflicts by rearranging the recipe and commit the result
-       - Push the result up to github with `git push origin BRANCH-NAME`
-       - Then attempt to merge their pull request.  If new changes have happened on master they may have to repeat step 1 above. 
-5. Merge changes simultaneously, kind of like the _ad-hoc_ strategy.
-    - **Remember**: Whoever on your team is merging their changes into master must successfully finish that process (including fixing any merge conflicts!) before the next person can begin.  Help them with resolving the conflicts.
-    - Work with your fellow team members to resolve any merge conflicts.
-6. Once everyone's changes have been merged together, the group as a whole should review it for completeness.
-    - Make sure that none of the lines from $$your individual scrap are missing from the final result.
-    - If there are any fixes needed, pick one person in the group to make the necessary changes and commit them.
-
-
 
 
 ## **Moar Git Commands**
@@ -107,3 +86,30 @@ Syntax | Action
 
 
 
+---
+
+## **Git Workflow - Group Project**
+
+*From Merge Conflict Carnival activity*
+
+Once everyone in your group has completed the baseline setup instructions above you're ready to start building the recipe together.
+
+Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:
+
+1. Pull with `git pull origin <branch pulling FROM>`
+2. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`
+3. Each team member will push their changes up to github with `git push origin BRANCH-NAME`.
+4. Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your forked repository and NOT AdaGold.**
+    - To make the PR against your team members forked respository and not AdaGold, we will need to change the base repository
+    - If there is a report of a merge conflict you will need to:
+       - Pull the current state of a remote branch into **their feature branch** with `git pull origin <branch pulling FROM>`
+       - in VS code select **accept both changes**
+       - Resolve the merge conflicts by rearranging the recipe and commit the result
+       - Push the result up to github with `git push origin BRANCH-NAME` or, if pushing from one branch to another, `git push <repo name> <from this branch>:<to this branch>`
+       - Then attempt to merge their pull request.  If new changes have happened on master they may have to repeat step 1 above. 
+5. Merge changes simultaneously, kind of like the _ad-hoc_ strategy.
+    - **Remember**: Whoever on your team is merging their changes into master must successfully finish that process (including fixing any merge conflicts!) before the next person can begin.  Help them with resolving the conflicts.
+    - Work with your fellow team members to resolve any merge conflicts.
+6. Once everyone's changes have been merged together, the group as a whole should review it for completeness.
+    - Make sure that none of the lines from $$your individual scrap are missing from the final result.
+    - If there are any fixes needed, pick one person in the group to make the necessary changes and commit them.
