@@ -46,9 +46,7 @@
 ## **Moar Git Commands**
 Syntax | Action
 --- | ---
-`git status` | Displays the status of your working directory. Options include new,
-staged, and modified files. It will retrieve branch name, current commit
-identifier, and changes pending commit.
+`git status` | Displays the status of your working directory. Options include new, staged, and modified files. It will retrieve branch name, current commit identifier, and changes pending commit.
 `git diff <file>` | Show changes between working directory and staging area
 `git diff --staged <file>` | Shows any changes between the staging area and the repository.
 `git branch` | lists existing branches 
@@ -60,7 +58,6 @@ identifier, and changes pending commit.
 `git branch -m <new_name>` | rename a LOCAL branch. must be on the branch that you want to rename 
 `git branch -d localBranchName` | delete branch locally
 `git push origin --delete remoteBranchName` | delete branch remotely
-
 `git remote` | Shows names of remote repositories 
 `git remote -v` | Shows names and URLs of remote repositories 
 `git config --global push.default current` | One-time optional commnand!! This will ensure that when you run only git push without specifying the branch name, it will push to the remote repo from the local machine’s existing branch to the same branch in remote repo. That is, it should push the current branch to update a branch with the same name on the receiving end.
