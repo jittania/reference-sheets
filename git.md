@@ -13,14 +13,14 @@
 
 ---
 
-## **Git Workflow - Solo Project**
+## **Git Workflow**
 
-1. Confirm that the project is in the state you expect with `git status`
-4. Determine what your next task or goal is.
-5. Start running tests, writing code, etc.
-6. When you have a small, meaningful change, get ready to make a commit:
-    1. `cd` into project
-    2. Move the intended changes from local changes area to staging with 
+1. Run `git checkout master` to make sure you're on master branch
+2. Fetch and merge any new commits from master branch with `git pull`
+3. Create a new branch with `git checkout -b <new branch name>`
+4. When you have a small, meaningful change, get ready to make a commit:
+   1. Confirm that the project is in the state you expect with `git status`
+   2. Move the intended changes from local changes area to staging with one of the following:
          - `git add name_of_file` (adding specific file(s))
          - `git add .` (to select all files under the current directory)
          - `git add -p` 
@@ -30,16 +30,12 @@
             - This method encourages reviewing code changes
     3. Create a commit and a commit message from the changes in staging with `git commit -m ""`
     4. Review the commit with `git show`, then exit that view and get back to command line with `q`
-7. Create at least one commit. Continue to write code and make commits.
-        - Commits are always made against your local Git repository, so you don’t have to worry about the commit being perfect or ready to share with others.
-8. Fetch and merge any new commits from `origin` with `git pull` 
-    - If pulling from a particular branch other than `main`, use `git pull origin <branch pulling FROM>`
-9.  Review the code; check that the tests still pass, and the code still runs
-    - If the code is broken, restart this process and make commits that will fix the problem
-10. Send all of your commits to `origin` with `git push`, or for more specificity, use:
-    -  `git push origin BRANCH-NAME` 
-    -  or, if pushing from one branch to another (usually `main`), `git push <repo name> <from this branch>:<to this branch>`
-11. Review your work with `git status` and `git log`
+5. Go back to the master branch and fetch and merge any new commits with `git pull`
+    - Note: If pulling from a particular branch other than `main`, use `git pull origin <branch pulling FROM>`
+   1. If there are changes, need to switch back to your feature branch and run `git merge master`  
+6.  Send all of your commits to `origin` with `git push`, or for more specificity, use `git push origin BRANCH-NAME` 
+    -  Note: If pushing from one branch to another (usually `main`), `git push <repo name> <from this branch>:<to this branch>`
+7.  Review your work with `git status` and `git log`
 
 ---
 
@@ -97,28 +93,3 @@ identifier, and changes pending commit.
 
 
 
----
-
-## **Git Workflow - Group Project**
-
-*From Merge Conflict Carnival activity*
-
-"Once everyone in your group has completed the baseline setup instructions above you're ready to start building the recipe together. Because each member of your group now has a different version of the recipe file in their local repository, building the complete recipe by merging those versions together will result in merge conflicts. To handle those merge conflicts sensibly your group should use the following process to construct the final recipe file:"
-
-1. Pull with `git pull origin <branch pulling FROM>`
-2. Each person on a team will create a branch with `git checkout -b BRANCH-NAME`
-3. Each team member will push their changes up to github with `git push origin BRANCH-NAME`.
-4. Each team member will open a **pull request** trying to merge their branch on github into `master`.  **Be very careful to make the PR against your forked repository and NOT AdaGold.**
-    - To make the PR against your team members forked respository and not AdaGold, we will need to change the base repository
-    - If there is a report of a merge conflict you will need to:
-       - Pull the current state of a remote branch into **their feature branch** with `git pull origin <branch pulling FROM>`
-       - in VS code select **accept both changes**
-       - Resolve the merge conflicts by rearranging the recipe and commit the result
-       - Push the result up to github with `git push origin BRANCH-NAME` or, if pushing from one branch to another, `git push <repo name> <from this branch>:<to this branch>`
-       - Then attempt to merge their pull request.  If new changes have happened on master they may have to repeat step 1 above. 
-5. Merge changes simultaneously, kind of like the _ad-hoc_ strategy.
-    - **Remember**: Whoever on your team is merging their changes into master must successfully finish that process (including fixing any merge conflicts!) before the next person can begin.  Help them with resolving the conflicts.
-    - Work with your fellow team members to resolve any merge conflicts.
-6. Once everyone's changes have been merged together, the group as a whole should review it for completeness.
-    - Make sure that none of the lines from your individual scrap are missing from the final result.
-    - If there are any fixes needed, pick one person in the group to make the necessary changes and commit them.
