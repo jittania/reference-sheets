@@ -3,9 +3,9 @@
 1. `cd` into your `projects` folder
 2. Clone the project onto your machine with `git clone project-url`
 3. `cd` into the project's root directory
-4. Create the virtual environment `venv`
+4. Create a virtual environment with
     `python3 -m venv venv`
-5. Activate the virtual environment `venv`
+5. Activate the virtual environment with 
     `source venv/bin/activate`
 
     Verify that you're in a python3 virtual environment by running:
@@ -13,20 +13,20 @@
     `python --version` should output a Python 3 version
     `pip --version` should output that it is working with Python 3
 
-6. Install the dependencies with pip
+6. Install the dependencies with
     `pip install -r requirements.txt`
 
 ## Getting Code onto GitHub the First Time
 
-1. Go into your project folder $ cd project-name
+1. `cd` into your project folder 
 2. Confirm that your project was a fork from the original project repo:
-    - Run $ git remote -v
+    - Run `git remote -v`
     - Confirm that origin has a value of your own project repo. Your GitHub username should be in the path of origin
 3. Make a commit with all of the project files:
-    - Add all files to staging with $ git add -A
-    - Make a commit with a meaningful commit message $ git commit -m "Your message here"
+    - Add all files to staging with `git add -A`
+    - Make a commit with a meaningful commit message `git commit -m "Your message here"`
 4. Push your project commit to your own project repo
-    - Run $ git push or $ git push origin master
+    - Run `git push` or `git push origin master`
 
 ## How to Make a Pull Request
 
