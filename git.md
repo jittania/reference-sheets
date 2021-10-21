@@ -1,3 +1,30 @@
+## **Git Commands: Quick Reference**
+Syntax | Action
+--- | ---
+`git stash` | Takes your uncommitted changes (both staged and unstaged), saves them away for later use, and then reverts them from your working copy
+`git stash pop` | Popping your stash removes the changes from your stash and reapplies them to your working copy.
+`git stash -u` | Tells git to also stash your untracked files i.e. new files in your working copy that have not yet been staged and/or files that have been ignored 
+`git status` | Displays the status of your working directory. Options include new, staged, and modified files. It will retrieve branch name, current commit identifier, and changes pending commit.
+`git diff <file>` | Show changes between working directory and staging area
+`git diff --staged <file>` | Shows any changes between the staging area and the repository.
+`git branch` | lists existing branches 
+`git diff HEAD` | after a `git add` command, this command will list show the changes made since most recent commit
+`git switch <destination-branch-name>` | switch to an existing branch (new)
+`git checkout <existing_branch>` | switch to an existing branch (old-school)
+`git branch <new-branch-name>` | create a new branch
+`git checkout -b <new_branch>` | create a new branch and switch to it
+`git branch -m <new_name>` | rename a LOCAL branch. must be on the branch that you want to rename 
+`git branch -d localBranchName` | delete branch locally
+`git push origin --delete remoteBranchName` | delete branch remotely
+`git remote` | Shows names of remote repositories 
+`git remote -v` | Shows names and URLs of remote repositories 
+`git config --global push.default current` | One-time optional commnand!! This will ensure that when you run only git push without specifying the branch name, it will push to the remote repo from the local machine’s existing branch to the same branch in remote repo. That is, it should push the current branch to update a branch with the same name on the receiving end.
+`git push <repo name> <branch name>` | general syntax for pushing to specific repo and branch
+`git push <repo name> <from this branch>:<to this branch>` | optional syntax for pushing from one branch to another
+`git reset --soft HEAD~1` | The easiest way to undo the last Git commit is to execute the “git reset” command with the “–soft” option that will preserve changes done to your files. You have to specify the commit to undo which is `HEAD~1` in this case (`HEAD~1` means that you want to reset the HEAD (the last commit) to one commit before in the log history)
+
+---
+
 ## **Git Set Up**
 
 ### **If you already have a remote repo set up on GitHub:**
@@ -31,35 +58,42 @@
     3. Create a commit and a commit message from the changes in staging with `git commit -m ""`
     4. Review the commit with `git show`, then exit that view and get back to command line with `q`
 5. Go back to the master branch and fetch and merge any new commits with `git pull`
-    - Note: If pulling from a particular branch other than `main`, use `git pull origin <branch pulling FROM>`
-   1. If there are changes, need to switch back to your feature branch and run `git merge master`  
+    - Note: If pulling FROM from a particular remote branch other than `master`, use `git pull origin <branch pulling FROM>`
+    - If there are changes, will need to switch back to your feature branch and from there run `git merge master` to pull those changes in from `master` to the branch you are currently on 
 6.  Send all of your commits to `origin` with `git push`, or for more specificity, use `git push origin BRANCH-NAME` 
     -  Note: If pushing from one branch to another (usually `main`), `git push <repo name> <from this branch>:<to this branch>`
 7.  Review your work with `git status` and `git log`
 
 ---
 
-## **Moar Git Commands**
-Syntax | Action
---- | ---
-`git status` | Displays the status of your working directory. Options include new, staged, and modified files. It will retrieve branch name, current commit identifier, and changes pending commit.
-`git diff <file>` | Show changes between working directory and staging area
-`git diff --staged <file>` | Shows any changes between the staging area and the repository.
-`git branch` | lists existing branches 
-`git diff HEAD` | after a `git add` command, this command will list show the changes made since most recent commit
-`git switch <destination-branch-name>` | switch to an existing branch (new)
-`git checkout <existing_branch>` | switch to an existing branch (old-school)
-`git branch <new-branch-name>` | create a new branch
-`git checkout -b <new_branch>` | create a new branch and switch to it
-`git branch -m <new_name>` | rename a LOCAL branch. must be on the branch that you want to rename 
-`git branch -d localBranchName` | delete branch locally
-`git push origin --delete remoteBranchName` | delete branch remotely
-`git remote` | Shows names of remote repositories 
-`git remote -v` | Shows names and URLs of remote repositories 
-`git config --global push.default current` | One-time optional commnand!! This will ensure that when you run only git push without specifying the branch name, it will push to the remote repo from the local machine’s existing branch to the same branch in remote repo. That is, it should push the current branch to update a branch with the same name on the receiving end.
-`git push <repo name> <branch name>` | general syntax for pushing to specific repo and branch
-`git push <repo name> <from this branch>:<to this branch>` | optional syntax for pushing from one branch to another
-`git reset --soft HEAD~1` | The easiest way to undo the last Git commit is to execute the “git reset” command with the “–soft” option that will preserve changes done to your files. You have to specify the commit to undo which is `HEAD~1` in this case (`HEAD~1` means that you want to reset the HEAD (the last commit) to one commit before in the log history)
+## **Resolving Merge Conflicts**
+
+Conflicts generally arise when two people have changed the same lines in a file, or if one developer deleted a file while another developer was modifying it. In these cases, Git cannot automatically determine what is correct. Conflicts only affect the developer conducting the merge, the rest of the team is unaware of the conflict.
+
+A merge can enter a conflicted state at two separate points:
+
+1. **Git fails to start the merge**
+
+A merge will fail to start when Git sees there are changes in either the working directory or staging area of the current project. Git fails to start the merge because these pending changes could be written over by the commits that are being merged in. When this happens, it is not because of conflicts with other developer's, but conflicts with pending local changes. The local state will need to be stabilized using `git stash`, `git checkout`, `git commit` or `git reset`. This is what the error will look like: 
+
+    error: Entry '<fileName>' not uptodate. Cannot merge. (Changes in working directory)
+
+
+2. **Git fails during the merge**
+
+A failure DURING a merge indicates a conflict between the current local branch and the branch being merged. This indicates a conflict with another developers code, and you'll get an error like this:
+
+    error: Entry '<fileName>' would be overwritten by merge. Cannot merge. (Changes in staging area)
+
+
+### **More Merge Troubleshooting**
+
+```
+"Updates were rejected because the tip of your current branch is behind its remote counterpart. Integrate the remote changes (e.g. hint: ‘git pull …’) before pushing again
+```
+
+This happens because, after you've pulled, someone pushed changes to the same branch you're working on.
+
 
 
 ---
