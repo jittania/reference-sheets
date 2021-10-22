@@ -7,6 +7,7 @@ Syntax | Action
 `git stash` | Takes your uncommitted changes (both staged and unstaged), saves them away for later use, and then reverts them from your working copy
 `git stash pop` | Popping your stash removes the changes from your stash and reapplies them to your working copy.
 `git stash -u` | Tells git to also stash your untracked files i.e. new files in your working copy that have not yet been staged and/or files that have been ignored 
+`git branch <name for duplicated branch>` | Makes a duplicate branch of the one you're currently on 
 `git status` | Displays the status of your working directory. Options include new, staged, and modified files. It will retrieve branch name, current commit identifier, and changes pending commit.
 `git diff <file>` | Show changes between working directory and staging area
 `git diff --staged <file>` | Shows any changes between the staging area and the repository.
