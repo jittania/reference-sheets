@@ -98,6 +98,12 @@ A failure DURING a merge indicates a conflict between the current local branch a
 
 This happens because, after you've pulled, someone pushed changes to the same branch you're working on.
 
+Tentative steps for how to solve (based on my experience - will probably update this in the future):
+1.  After receiving the above error, run `git pull origin <feature branch causing conflicts>` which will attempt to pull down changes from the remote version of this branch. This will set off a merge conflict warning and fail.
+2.  Once the merge conflicts have been triggered, you can go into VS Code and review them. You have to go through each conflict and decide whether to accept the current changes vs. the incoming changes, or attempt to reconcile both. You'll know you're done resolving all of the conflicts once VS Code removes the red error flags on the files causing the conflicts.
+3. Now re-add the files (I find using `git add -p` particularly useful here to help make sense of what's happening) and commit the changes
+4. Now attempt to push again with `git push origin <feature branch>`
+
 
 
 ---
