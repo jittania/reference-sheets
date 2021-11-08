@@ -104,8 +104,17 @@ Tentative steps for how to solve (based on my experience - will probably update 
 3. Now re-add the files (I find using `git add -p` particularly useful here to help make sense of what's happening) and commit the changes
 4. Now attempt to push again with `git push origin <feature branch>`
 
+```
+Please enter a commit message to explain why this merge is necessary,
+especially if it merges an updated upstream into a topic branch.
+```
+How to respond to this vim window (and get out of it):
 
-
+1. press "i" (i for insert)
+2. write your merge message
+3. press "esc" (escape)
+4. write ":wq" (write & quit)
+5. then press enter
 ---
 
 ## **Version Controlling with Git in Visual Studio Code**
