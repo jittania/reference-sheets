@@ -44,7 +44,7 @@ Syntax | Action
 
 ---
 
-## **Git Workflow**
+## **Basic Git Workflow**
 
 1. Run `git checkout master` to make sure you're on master branch
 2. Fetch and merge any new commits from master branch with `git pull`
@@ -67,6 +67,14 @@ Syntax | Action
 6.  Send all of your commits to `origin` with `git push`, or for more specificity, use `git push origin BRANCH-NAME` 
     -  Note: If pushing from one branch to another (usually `main`), `git push <repo name> <from this branch>:<to this branch>`
 7.  Review your work with `git status` and `git log`
+
+## **Advanced Git Workflow**
+
+How to pull down a remote branch without merging it:
+
+1. `git switch master`
+2. `git fetch`
+3. `git checkout origin <remote branch name>`
 
 ---
 
