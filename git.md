@@ -1,11 +1,15 @@
 ## **Git Commands: Quick Reference**
 Syntax | Action
 --- | ---
+`git help <command>` | explains git commands!
 `git rebase master` | When run from a feature branch, moves the entire feature branch to begin on the tip of the main branch, effectively incorporating all of the new commits in main. But, instead of using a merge commit, rebasing re-writes the project history by creating brand new commits for each commit in the original branch.
 `git merge master` | When run from a feature branch, will merge any changes made to local master branch into that feature branch
 `git merge <feature-branch-name> master` | Creates a new “merge commit” in the feature branch that ties together the histories of both branches
 `git stash` | Takes your uncommitted changes (both staged and unstaged), saves them away for later use, and then reverts them from your working copy
-`git stash pop` | Popping your stash removes the changes from your stash and reapplies them to your working copy.
+`git stash list` | View what is in the stash
+`git stash clear` | Deletes all your stashed states at once (good practice to run `git stash list` before and after using this command)
+`git stash drop <stash_id>` | delete a particular stash state 
+`git stash pop` or `git stash apply` | Popping your stash removes the changes from your stash and reapplies them to your working copy.
 `git stash -u` | Tells git to also stash your untracked files i.e. new files in your working copy that have not yet been staged and/or files that have been ignored 
 `git branch <name for duplicated branch>` | Makes a duplicate branch of the one you're currently on 
 `git status` | Displays the status of your working directory. Options include new, staged, and modified files. It will retrieve branch name, current commit identifier, and changes pending commit.
