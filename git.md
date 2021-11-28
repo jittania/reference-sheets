@@ -80,6 +80,14 @@ How to pull down a remote branch without merging it:
 2. `git fetch`
 3. `git checkout origin <remote branch name>`
 
+How to delete a file you've already pushed to prod:
+
+1. Delete the file locally
+2. Run `git status` to see what changes you currently have staged
+3. Run `git add <file that you deleted>`
+4. Run `git status` again to make sure deleted file was removed
+5. Commit changes
+
 ---
 
 ## **Resolving Merge Conflicts**
