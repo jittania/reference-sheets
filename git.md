@@ -20,7 +20,8 @@ Syntax | Action
 `git switch <destination-branch-name>` | switch to an existing branch (new)
 `git checkout <existing_branch>` | switch to an existing branch (old-school)
 `git branch <new-branch-name>` | create a new branch
-`git checkout -b <new_branch>` | create a new branch and switch to it
+`git checkout <new_branch>` | create a new branch and switch to it
+`git checkout -b <new_branch>` | Create a new branch and switch to it. Use `-b` if you don't want a detached head...A detached HEAD occurs when you check out a commit that is not a branch. The term detached HEAD tells you that you are not viewing the HEAD of any repository. The HEAD is the most recent version of a branch. 
 `git branch -m <new_name>` | rename a LOCAL branch. must be on the branch that you want to rename 
 `git branch -d localBranchName` | delete branch locally
 `git push origin --delete remoteBranchName` | delete branch remotely
@@ -161,5 +162,11 @@ How to respond to this vim window (and get out of it):
       5. Select the master as the reference branch.
       6. You are now working on that branch.
 
+    **Pulling down a remote branch:**
 
+    `git pull` will synchronize your repository with the remote. The new_feature_branch will then be available. Then `git checkout new_feature_branch` will notice the branch in origin and create a new local tracking branch for you and switch to that branch.
+    ```
+    git pull
+    git checkout new_feature_branch
+    ```
 
