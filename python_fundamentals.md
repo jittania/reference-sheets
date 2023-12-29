@@ -26,13 +26,36 @@ This is example syntax for modifying one element in a nested list.
 
     my_list[inner_list_index][element_index] = new_value
 
+The `sorted()` function returns a new sorted (ascending order) list from an iterable:
 
-The `remove()` method will remove the **first instance** of a value in a list.
+    sorted([5, 2, 3, 1, 4])
+    # Output: [1, 2, 3, 4, 5]
+
+The `.sort()` method modifies the list in-place (and returns `None` to avoid confusion). Usually it’s less convenient than sorted() - but if you don’t need the original list, it’s slightly more efficient. Time complexity is O(n log n) for average and worst cases.
+
+    a = [5, 2, 3, 1, 4]
+    a.sort()
+    # a is now [1, 2, 3, 4, 5]
+
+Both `list.sort()` and `sorted()` accept a reverse parameter with a boolean value.
+
+Both `list.sort()` and `sorted()` also take a key parameter to specify a function (or other callable) to be called on each list element prior to making comparisons. The value of the key parameter should be a function (or other callable) that takes a single argument and returns a key to use for sorting purposes. This technique is fast because the key function is called exactly once for each input record.
+
+    def sort_second(val):
+	    return val[1]
+    my_list1 = [(1, 2), (3, 3), (1, 1)]
+    my_list1.sort(key=sort_second)
+    print(my_list1)
+    my_list1.sort(key=sort_second, reverse=True)
+    print(my_list1)
+
+
+The `.remove()` method will remove the **first instance** of a value in a list.
 
     list = [1, 2, 3, 1]
     list.remove(1) # Output: [2, 3, 1]
 
-The `pop()` method removes an element at a given index, and will also return the removed item.
+The `.pop()` method removes an element at a given index, and will also return the removed item.
 
     numbers = [10, 20, 30, 40]
     ten = numbers.pop(0)
