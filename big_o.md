@@ -10,4 +10,8 @@ So, the overall space complexity of is the sum of the auxiliary space and the sp
 
 `Space Complexity = O(1) (Auxiliary Space) + O(N) (Space Used for Input Values) = O(N)`
 
+Other notes:
+- Variables count as space, but if you’re storing scalars in them, then their space usage is constant. So if you’re not allocating any new arrays or objects, then you’ve got O(1) space complexity. For example: a `for` loop uses O(1) space (same amount of space regardless of array size, since you're swapping out for the same space), but O(n) time.
+- In Python, slicing lists does not generate copies of the objects in the list; it just copies the references to them. So if you have a function that makes a slice of an input array, that operation alone uses O(1) auxiliary space. 
+
 ## **Time Complexity**
