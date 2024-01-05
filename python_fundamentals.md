@@ -21,8 +21,23 @@ Raising an error to check if a value is numeric:
 
 ## **Lists**
 
+You can look at ranges with slice syntax: `li[start:end:step]`
+The start index is included, the end index is not (It's a closed/open range for you mathy types) - use any combination of these to make advanced slices.
+For example, given `li = [1, 2, 4, 3]`:
 
-This is example syntax for modifying one element in a nested list.
+```
+li[-1]    # Return element at very last index => [3]
+li[1:-1]  # Return list starting from index 1 up until last index => [2, 4]
+li[1:3]   # Return list from index 1 to 3 => [2, 4]
+li[2:]    # Return list starting from index 2 => [4, 3]
+li[:3]    # Return list from beginning until index 3  => [1, 2, 4]
+li[::2]   # Return list selecting elements with a step size of 2 => [1, 4]
+li[::-1]  # Return list in reverse order => [3, 4, 2, 1]
+```
+
+
+
+This is example syntax for modifying one element in a nested list:
 
     my_list[inner_list_index][element_index] = new_value
 
