@@ -1,12 +1,3 @@
-# Erase HD and Reinstall Big Sur
-
-Follow directions to start in macOS Recovery, wipe, and reinstall macOS
-
-https://support.apple.com/guide/mac-help/macos-recovery-a-mac-apple-silicon-mchl82829c17/11.0/mac/11.0#mchl0e4c30d6
-
-(Remember to erase both "Macintosh HD" and "Macintosh HD Data")
-
----
 
 # Ada Installfest
 
@@ -17,12 +8,7 @@ https://support.apple.com/guide/mac-help/macos-recovery-a-mac-apple-silicon-mchl
         $ xcode-select --install
 
 
-- [X] Install Homebrew, Pip 3, Python 3, Git (will need GitHub log in info), Node with:
-
-**Check that this is the M1 or Intel one first!!**
-
-        $ /bin/bash -c "$(curl -fsSL https://gist.githubusercontent.com/CheezItMan/e31aebdb0f686c1a194e980b24f3cea4/raw/5710e04d17a7840df3df0ea95502da275a9943cb/ada_c14_installfest.bash)"
-
+- [X] Install Homebrew, Pip 3, Python 3, Git (will need GitHub log in info), Node
 
 - [X] The Homebrew installation sequence offers some other optional things that you will also be prompted to install, and which are all recommended for Ada: Firefox, Google Chrome, VS Code, Slack
 

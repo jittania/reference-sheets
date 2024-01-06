@@ -36,7 +36,6 @@ li[::-1]  # Return list in reverse order => [3, 4, 2, 1]
 ```
 
 
-
 This is example syntax for modifying one element in a nested list:
 
     my_list[inner_list_index][element_index] = new_value
