@@ -87,9 +87,17 @@ One other method from removing elements from a list is to take a slice of the li
 
 ---
 
-## **Dictionaries (Hash maps/tables) & Sets**
+## **Tuples**
 
-A **dictionary (also called hash map or hash table)** must have a key that is **immutable**, i.e. a string or tuple (fun trick: in Python, if you want to use an array i.e. list (immutable) as a hash key, you can convert it to a **tuple** with `tuple(arr)` or to a string of comma-separated values since both tuples and strings are immutable. This can come in handy if you want to create a key from an ordered collection of elements, since arrays/lists can be sorted). 
+A **tuple** represents a sequence of any objects separated by commas and enclosed in parentheses. A tuple is an immutable object, which means it cannot be changed, and we use it to represent fixed collections of items.
+
+---
+
+## **Dictionaries (Hash Maps/Tables) & Sets**
+
+A **dictionary (also called hash map or hash table)** must have a key that is **immutable**, i.e. a string or tuple. Fun trick: in Python, if you want to use an array i.e. list (immutable) as a hash key, you can convert it to a **tuple** with `tuple(arr)` or to a string of comma-separated values, since both tuples and strings are immutable. This can come in handy if you want to create a key from an ordered collection of elements, since arrays/lists can be sorted and maintain their order. 
+
+A **set** uses the same mechanism for hashing keys into integers as a dictionary, except that sets do not map their keys to anything: a set is just a collection of unique keys (basically a dictionary without values). Sets are more convenient to use when you only care about checking if elements exist. You can add, remove, and check if an element exists in a set all in O(1) time. 
 
 Declaration: a hash map is declared like any other variable. The syntax is {}
 
