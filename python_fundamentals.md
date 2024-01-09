@@ -19,14 +19,14 @@ Raising an error to check if a value is numeric:
 
 ---
 
-## **Lists**
+## **Lists (Dynamic Arrays)**
 
 You can look at ranges with slice syntax: `li[start:end:step]`
 The start index is included, the end index is not (It's a closed/open range for you mathy types) - use any combination of these to make advanced slices.
 For example, given `li = [1, 2, 4, 3]`:
 
 ```
-li[-1]    # Return element at very last index => [3]
+li[-1]    # Return element at very last index => [3] (Good way to grab the most recent element you appended to a list)
 li[1:-1]  # Return list starting from index 1 up until last index => [2, 4]
 li[1:3]   # Return list from index 1 to 3 => [2, 4]
 li[2:]    # Return list starting from index 2 => [4, 3]
@@ -87,7 +87,60 @@ One other method from removing elements from a list is to take a slice of the li
 
 ---
 
-## **Dictionaries**
+## **Dictionaries (Hash maps/tables) & Sets**
+
+A **dictionary (also called hash map or hash table)** must have a key that is **immutable**, i.e. a string or tuple (fun trick: in Python, if you want to use an array i.e. list (immutable) as a hash key, you can convert it to a **tuple** with `tuple(arr)` or to a string of comma-separated values since both tuples and strings are immutable. This can come in handy if you want to create a key from an ordered collection of elements, since arrays/lists can be sorted). 
+
+Declaration: a hash map is declared like any other variable. The syntax is {}
+
+    hash_map = {}
+
+If you want to initialize it with some key value pairs, use the following syntax:
+
+    hash_map = {1: 2, 5: 3, 7: 2}
+
+Checking if a key exists: simply use the `in` keyword
+
+    1 in hash_map # True
+    9 in hash_map # False
+
+Accessing a value given a key: use square brackets, similar to an array.
+
+    hash_map[5] # 3
+
+Adding or updating a key: use square brackets, similar to an array.
+If the key already exists, the value will be updated
+
+    hash_map[5] = 6
+
+If the key doesn't exist yet, the key value pair will be inserted
+
+    hash_map[9] = 15
+
+Deleting a key: use the del keyword. Key must exist or you will get an error.
+    
+    del hash_map[9]
+
+Get size
+
+    len(hash_map) # 3
+
+Get keys: use `.keys()`. You can iterate over this using a for loop.
+
+    keys = hash_map.keys()
+    for key in keys:
+        print(key)
+
+Get values: use `.values()`. You can iterate over this using a for loop.
+
+    values = hash_map.values()
+    for val in values:
+        print(val)
+
+**If you wanted to convert `my_dict.keys()` into a list, you would have to use `list(my_dict.keys())`**
+
+    for my_key in my_dict.keys():
+        print(my_key)
 
 Use `.pop()` to remove a key-value pair and return the vlaue:
 
@@ -104,15 +157,7 @@ If you only need to loop over only the keys:
     for my_key in my_dict:
         print(my_key)
 
-**If you wanted to convert `my_dict.keys()` into a list, you would have to use `list(my_dict.keys())`**
 
-    for my_key in my_dict.keys():
-        print(my_key)
-
-Use `my_dict.values()` for looping over only values:
-
-    for my_value in my_dict.values():
-        print(my_value)
 
 ---
 
@@ -141,6 +186,9 @@ Remember that....**attempting to change (adding, multiplying, etc) an IMMUTABLE 
 Whereas... **MUATBLE objects do not change object IDs when the object is modified or mutated.**
 
 Together that means... **when you call a function, you pass a reference from the argument to the parameter, so they're both going to refer to the same object in memory. if it's a mutable object, like a list or dictionary, anything you do to the parameter, gets reflected back to the original argument.**
+
+**Immutable**: Strings, Tuples
+**Mutable**: Arrays, Hashes, Sets
 
 ---
 
