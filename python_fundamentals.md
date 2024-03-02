@@ -95,9 +95,9 @@ A **tuple** represents a sequence of any objects separated by commas and enclose
 
 ## **Dictionaries (Hash Maps/Tables) & Sets**
 
-A **dictionary (also called hash map or hash table)** must have a key that is **immutable**, i.e. a string or tuple. Fun trick: in Python, if you want to use an array i.e. list (immutable) as a hash key, you can convert it to a **tuple** with `tuple(arr)` or to a string of comma-separated values, since both tuples and strings are immutable. This can come in handy if you want to create a key from an ordered collection of elements, since arrays/lists can be sorted and maintain their order. 
+A **dictionary (also called hash map or hash table in other languages)** must have a key that is **immutable**, i.e. a string or tuple. Fun trick: in Python, if you want to use an array i.e. list (mutable) as a hash key, you can convert it to a **tuple** with `tuple(arr)` or to a string of comma-separated values, since both tuples and strings are immutable. This can come in handy if you want to create a key from an ordered collection of elements, since arrays/lists can be sorted and maintain their order. 
 
-A **set** uses the same mechanism for hashing keys into integers as a dictionary, except that sets do not map their keys to anything: a set is just a collection of unique keys (basically a dictionary without values). Sets are more convenient to use when you only care about checking if elements exist. You can add, remove, and check if an element exists in a set all in O(1) time. 
+A **set (also called a hash set in other languages)** uses the same mechanism for hashing keys into integers as a dictionary, except that sets do not map their keys to anything: a set is just a collection of unique keys (basically a dictionary without values). Sets are more convenient to use when you only care about checking if elements exist. You can add, remove, and check if an element exists in a set all in O(1) time. 
 
 Declaration: a hash map is declared like any other variable. The syntax is {}
 
@@ -145,10 +145,7 @@ Get values: use `.values()`. You can iterate over this using a for loop.
     for val in values:
         print(val)
 
-**If you wanted to convert `my_dict.keys()` into a list, you would have to use `list(my_dict.keys())`**
-
-    for my_key in my_dict.keys():
-        print(my_key)
+If you want to convert `my_dict.keys()` into a list, you would have to use `list(my_dict.keys())`
 
 Use `.pop()` to remove a key-value pair and return the vlaue:
 
@@ -164,6 +161,18 @@ If you only need to loop over only the keys:
 
     for my_key in my_dict:
         print(my_key)
+
+Looking up a non-existing key returns a KeyError:
+
+    filled_dict["four"]  # KeyError
+
+Use "get()" method to avoid a KeyError, which supports a default argument when the value is missing:
+
+    filled_dict.get("one")      # => 1
+    filled_dict.get("four")     # => None
+    filled_dict.get("one", 4)   # => 1
+    filled_dict.get("four", 4)  # => 4
+
 
 
 
@@ -274,3 +283,15 @@ Operator | Meaning
                 else:
                     char_map[character] += 1
         return char_map
+
+---
+
+## **Advanced Concepts**
+
+Some notes on concepts that generally fall into the DSA bucket and are not exclusive to Python. The following have helped me assimilate some of the info above into a broader "algorithmic-thinking" context:
+
+- Everytime a function is **called**, it is **pushed** onto the call stack. Everytime a function **returns**, it is **popped** off the call stack. Also, every function call stores its own variables.Helpful for navigating recursive patterns. 
+- Drawing the call stack at each recursive step is helpful for understanding what's happening. Call stacks <-> recursion 
+- DFS (depth-first search) is an example of an algorithm that's actually easier to implement and understand recursively. An iterative approach to DFS will likely still involve implementing your own stack, as opposed to the recursive approach which makes use of the Python interpreter's call stack.
+- When writing a recursive function, it's sometimes helpful to first think of your func as a blackbox that just already does the thing you want it to do without worrying about how. THEN figure out the base case, and then figure out the rest of the implementation. 
+
