@@ -134,7 +134,7 @@ test_build_src = true
 
 ---
 
-# Resources:
+## Resources:
 
 - **Conventions for naming/organizing tests so Platformio can find them:**  https://docs.platformio.org/en/latest/advanced/unit-testing/structure/hierarchy.html
 - **Best practices for writing Platformio tests:** https://docs.platformio.org/en/latest/advanced/unit-testing/structure/best-practices.html
